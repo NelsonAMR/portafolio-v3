@@ -1,0 +1,61 @@
+@use "./variables.scss" as v;
+
+:root {
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #7a0765 30%,
+    rgb(235, 32, 32) 60%
+  );
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: v.$font-primary;
+  background-color: #f6f6f6;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  width: 90%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
