@@ -6,11 +6,17 @@ import { Icon } from "astro-icon";
   <div class="footer-cont container">
     <h2>Nelson Macias</h2>
     <div class="icons">
+      <a href="https://www.linkedin.com/in/nelson-macias/" target="_blank">
+        <Icon name="bi:linkedin" class="icon" />
+      </a>
       <a href="https://github.com/NelsonAMR" target="_blank">
         <Icon name="bi:github" class="icon" />
       </a>
-      <a href="https://www.linkedin.com/in/nelson-macias/" target="_blank">
-        <Icon name="bi:linkedin" class="icon" />
+      <a
+        href="https://api.whatsapp.com/send/?phone=528621021596"
+        target="_blank"
+      >
+        <Icon name="bi:whatsapp" class="icon" />
       </a>
     </div>
     <p>"Si puedes pensarlo, puedes programarlo"</p>
@@ -27,19 +33,19 @@ import { Icon } from "astro-icon";
   }
 
   .footer-cont {
-    padding-block: 2rem;
+    padding-block: 3rem;
     text-align: center;
     color: v.$white;
 
     h2 {
-      font-size: 3rem;
+      font-size: 4rem;
       margin-bottom: 1rem;
     }
 
     .icons {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 3rem;
 
       .icon {
