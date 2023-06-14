@@ -10,6 +10,8 @@ import { Nav } from "./";
 </header>
 
 <style lang="scss">
+  @use "../styles/variables.scss" as v;
+
   header {
     height: 8rem;
     width: 100%;
@@ -17,6 +19,7 @@ import { Nav } from "./";
     h2 {
       cursor: pointer;
       font-size: 4rem;
+      color: v.$secondary;
     }
   }
 

@@ -1,0 +1,61 @@
+<section class="home container">
+  <p>Construyamos algo juntos</p>
+  <h1>Hola, soy <span>Nelson</span></h1>
+  <h2>Soy desarrollador Fullstack</h2>
+  <a href="../../public/NelsonMacias-WebDeveloper.pdf" target="_blank"
+    >Descargar CV</a
+  >
+</section>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  @use "../styles/mixins.scss" as m;
+
+  .home {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1rem;
+    padding-bottom: 5rem;
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+
+      @include m.tablet {
+        font-size: 5.5rem;
+      }
+
+      span {
+        color: v.$secondary;
+      }
+    }
+
+    h2 {
+      @include m.tablet {
+        font-size: 4rem;
+      }
+    }
+
+    a {
+      margin-top: 2rem;
+      padding: 1rem;
+      cursor: pointer;
+      background-color: v.$secondary;
+      //   border: 0.1rem solid v.$blue;
+      border: none;
+      color: v.$white;
+      border-radius: 1rem;
+      font-size: 2rem;
+      width: 100%;
+      max-width: 40rem;
+    }
+  }
+</style>
