@@ -23,6 +23,7 @@ html {
   font-family: v.$font-primary;
   background-color: v.$theme;
   color: v.$primary;
+  scroll-behavior: smooth;
 }
 
 code {
