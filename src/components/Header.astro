@@ -2,9 +2,9 @@
 import { Nav } from "./";
 ---
 
-<header>
+<header id="home">
   <div class="header-cont container">
-    <h2>Nelson</h2>
+    <a href="#home"><h2>NM</h2></a>
     <Nav />
   </div>
 </header>
@@ -13,6 +13,11 @@ import { Nav } from "./";
   header {
     height: 8rem;
     width: 100%;
+
+    h2 {
+      cursor: pointer;
+      font-size: 4rem;
+    }
   }
 
   .header-cont {

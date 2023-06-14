@@ -1,9 +1,52 @@
-<footer>
-  <h2>Este es el footer</h2>
+---
+import { Icon } from "astro-icon";
+---
+
+<footer id="#contact">
+  <div class="footer-cont container">
+    <h2>Nelson Macias</h2>
+    <div class="icons">
+      <a href="https://github.com/NelsonAMR" target="_blank">
+        <Icon name="bi:github" class="icon" />
+      </a>
+      <a href="https://www.linkedin.com/in/nelson-macias/" target="_blank">
+        <Icon name="bi:linkedin" class="icon" />
+      </a>
+    </div>
+    <p>"Si puedes pensarlo, puedes programarlo"</p>
+  </div>
 </footer>
 
 <style lang="scss">
-  h2 {
-    font-size: 2rem;
+  @use "../styles/variables.scss" as v;
+
+  footer {
+    margin-top: auto;
+    background-color: v.$blue;
+    min-height: 15rem;
+  }
+
+  .footer-cont {
+    padding-block: 2rem;
+    text-align: center;
+    color: v.$white;
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+
+      .icon {
+        width: 2.5rem;
+        color: v.$white;
+        cursor: pointer;
+      }
+    }
   }
 </style>
