@@ -1,0 +1,57 @@
+---
+import { Icon } from "astro-icon";
+
+const { img, name, level } = Astro.props;
+const levels = ["Basico", "Intermedio", "Avanzado"];
+---
+
+<div class="skill">
+  <Icon name={img} class="icon" />
+  <div class="skill-cont">
+    <h4>{name}</h4>
+    <div class="skill-leve">
+      <p>{levels[level]}</p>
+      <div class="progress">
+        <div class="progress-bar" style={`width:${(level + 1) / 0.03}%;`}></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+
+  .skill {
+    height: 12.5rem;
+    display: flex;
+    gap: 2rem;
+    border: 0.1rem solid v.$secondary;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    .icon {
+      width: 10rem;
+    }
+  }
+
+  .skill-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .progress {
+      margin-top: 0.5rem;
+      height: 1.5rem;
+      width: 15rem;
+      border-radius: 1rem;
+      background-color: lighten(v.$secondary, 25%);
+      border: 0.1rem solid v.$secondary;
+      overflow: hidden;
+
+      .progress-bar {
+        height: 100%;
+        background-color: v.$secondary;
+      }
+    }
+  }
+</style>

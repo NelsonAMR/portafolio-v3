@@ -3,6 +3,7 @@ import Footer from "./Footer.astro";
 import Nav from "./Nav.astro";
 import Home from "./Home.astro";
 import Skills from "./Skills.astro";
+import SkillCard from "./Skill.astro";
 import Projects from "./Projects.astro";
 
-export { Header, Footer, Nav, Home, Skills, Projects };
+export { Header, Footer, Nav, Home, Skills, SkillCard, Projects };
