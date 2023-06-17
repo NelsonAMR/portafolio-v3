@@ -6,13 +6,15 @@ import { Icon } from "astro-icon";
   <div class="nav-mobile">
     <Icon name="ic:round-menu" class="icon" id="menu" />
 
-    <nav id="nav">
-      <a href="#home">Inicio</a>
-      <a href="#about">Acerca</a>
-      <a href="#skills">Habilidades</a>
-      <a href="#projects">Proyectos</a>
-      <a href="#contact">Contactar</a>
-    </nav>
+    <div class="nav-bg" id="nav">
+      <nav>
+        <a href="#home">Inicio</a>
+        <a href="#about">Acerca</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact">Contactar</a>
+      </nav>
+    </div>
   </div>
 
   <nav>
@@ -37,7 +39,7 @@ import { Icon } from "astro-icon";
 
       @include m.tablet {
         display: flex;
-        gap: 1rem;
+        gap: 2rem;
         font-size: 1.8rem;
       }
     }
@@ -53,28 +55,37 @@ import { Icon } from "astro-icon";
       cursor: pointer;
     }
 
-    nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      background-color: v.$white;
+    .nav-bg {
       position: fixed;
       top: 0;
-      left: 0;
+      right: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
       transform: translate(100%, 0);
-      transition: 200ms;
+      transition: transform 200ms;
 
-      a {
-        font-size: 3.5rem;
-        width: 100%;
-        height: 100%;
+      nav {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
+        background-color: v.$light;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        max-width: 45rem;
+        height: 100%;
+
+        a {
+          font-size: 2rem;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
@@ -89,12 +100,14 @@ import { Icon } from "astro-icon";
 
   function showNav() {
     if (nav) {
+      nav.style.backgroundColor = "rgb(0, 0, 0, 0.75)";
       nav.style.transform = "translate(0, 0)";
     }
   }
 
   function closeNav() {
     if (nav) {
+      nav.style.backgroundColor = "rgb(0, 0, 0, 0)";
       nav.style.transform = "translate(100%, 0)";
     }
   }
