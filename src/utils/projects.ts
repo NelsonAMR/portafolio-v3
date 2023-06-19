@@ -22,7 +22,7 @@ export const projects: Project[] = [
   {
     id: 2,
     demo: "https://six-circles.netlify.app/",
-    repo: "https://my-ewallet.netlify.app/",
+    repo: "https://github.com/orgs/six-circles/repositories",
     image: "/assets/projects/sixcircles.PNG",
     name: "Carrito Site",
     description:

@@ -6,7 +6,7 @@ import { Icon } from "astro-icon";
   <div class="nav-mobile">
     <Icon name="ic:round-menu" class="icon" id="menu" />
 
-    <div class="nav-bg" id="nav">
+    <div class="nav-bg hide" id="nav">
       <nav>
         <a href="#home">Inicio</a>
         <a href="#about">Acerca</a>
@@ -57,13 +57,14 @@ import { Icon } from "astro-icon";
 
     .nav-bg {
       position: fixed;
+      display: none;
       top: 0;
-      right: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
-      transform: translate(100%, 0);
-      transition: transform 200ms;
+      background-color: rgb(0, 0, 0, 0);
+      transition: background-color 500ms;
 
       nav {
         display: flex;
@@ -77,6 +78,8 @@ import { Icon } from "astro-icon";
         width: 100%;
         max-width: 45rem;
         height: 100%;
+        transform: translate(100%, 0);
+        transition: transform 500ms;
 
         a {
           font-size: 2rem;
@@ -88,27 +91,41 @@ import { Icon } from "astro-icon";
         }
       }
     }
+
+    .nav-bg.show {
+      background-color: rgb(0, 0, 0, 0.75);
+
+      nav {
+        transform: translate(0, 0);
+      }
+    }
   }
 </style>
 
 <script>
   const menu = document.getElementById("menu");
   const nav = document.getElementById("nav");
+  const navCont = document.querySelector<HTMLElement>("#nav nav");
 
   menu?.addEventListener("click", showNav);
   nav?.addEventListener("click", closeNav);
 
   function showNav() {
-    if (nav) {
-      nav.style.backgroundColor = "rgb(0, 0, 0, 0.75)";
-      nav.style.transform = "translate(0, 0)";
+    if (nav && navCont) {
+      nav.style.display = "block";
+      setTimeout(() => {
+        nav.classList.add("show");
+      }, 0);
     }
   }
 
   function closeNav() {
-    if (nav) {
-      nav.style.backgroundColor = "rgb(0, 0, 0, 0)";
-      nav.style.transform = "translate(100%, 0)";
+    if (nav && navCont) {
+      nav.classList.remove("show");
+
+      setTimeout(() => {
+        nav.style.display = "none";
+      }, 500);
     }
   }
 </script>
