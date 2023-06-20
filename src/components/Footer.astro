@@ -7,7 +7,7 @@ import { Icon } from "astro-icon";
     <h2>Nelson Macias</h2>
     <div class="icons">
       <a href="https://www.linkedin.com/in/nelson-macias/" target="_blank">
-        <Icon name="bi:linkedin" class="icon" />
+        <Icon name="ri:linkedin-fill" class="icon" />
       </a>
       <a href="https://github.com/NelsonAMR" target="_blank">
         <Icon name="bi:github" class="icon" />
@@ -25,6 +25,7 @@ import { Icon } from "astro-icon";
 
 <style lang="scss">
   @use "../styles/variables.scss" as v;
+  @use "../styles/mixins.scss" as m;
 
   footer {
     background-color: v.$secondary;
@@ -44,13 +45,30 @@ import { Icon } from "astro-icon";
     .icons {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
       margin-bottom: 3rem;
 
-      .icon {
-        width: 2.5rem;
-        color: v.$white;
-        cursor: pointer;
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 0.1rem solid v.$white;
+        border-radius: 100%;
+        width: 4rem;
+        height: 4rem;
+        transition: 150ms;
+
+        @include m.tablet {
+          &:hover {
+            scale: 1.1;
+          }
+        }
+
+        .icon {
+          width: 2rem;
+          color: v.$white;
+          cursor: pointer;
+        }
       }
     }
   }

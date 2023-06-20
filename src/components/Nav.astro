@@ -8,6 +8,7 @@ import { Icon } from "astro-icon";
 
     <div class="nav-bg hide" id="nav">
       <nav>
+        <span class="nav-close">X</span>
         <a href="#home">Inicio</a>
         <a href="#about">Acerca</a>
         <a href="#skills">Habilidades</a>
@@ -64,7 +65,7 @@ import { Icon } from "astro-icon";
       height: 100%;
       z-index: 1;
       background-color: rgb(0, 0, 0, 0);
-      transition: background-color 500ms;
+      transition: background-color 400ms;
 
       nav {
         display: flex;
@@ -79,7 +80,29 @@ import { Icon } from "astro-icon";
         max-width: 45rem;
         height: 100%;
         transform: translate(100%, 0);
-        transition: transform 500ms;
+        transition: transform 400ms;
+
+        .nav-close {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-self: flex-end;
+          margin: 1rem 1rem 0 0;
+          font-size: 2rem;
+          cursor: pointer;
+          width: 4rem;
+          min-height: 4rem;
+          border: 0.1rem solid v.$gray;
+          border-radius: 100%;
+          transition: 200ms ease-out;
+          background-color: v.$light;
+
+          &:hover {
+            background-color: v.$purple;
+            color: v.$white;
+            border: none;
+          }
+        }
 
         a {
           font-size: 2rem;
