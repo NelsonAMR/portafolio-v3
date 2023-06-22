@@ -11,6 +11,7 @@ $white: #fff;
 $blue: #0a3e79;
 $purple: #5651e5;
 $gray: #374151;
+$gray-l: lighten($gray, 50%);
 $theme: $light;
 $primary: $gray;
 $secondary: $purple;
