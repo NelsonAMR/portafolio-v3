@@ -1,35 +1,30 @@
 <div class="form-cont" id="contact">
   <h2>Contactame</h2>
 
-  <form class="form">
+  <form class="form" id="contact-form">
     <div class="form-camp">
       <label for="camp-name">Nombre</label>
-      <input type="text" required id="camp-name" />
+      <input type="text" required id="camp-name" name="name" />
     </div>
 
     <div class="form-camp">
       <label for="camp-phone">Telefono</label>
-      <input
-        type="tel"
-        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-        required
-        id="camp-phone"
-      />
+      <input type="tel" required id="camp-phone" name="phone" />
     </div>
 
     <div class="form-camp">
       <label for="camp-email">Email</label>
-      <input type="email" required id="camp-email" />
+      <input type="email" required id="camp-email" name="email" />
     </div>
 
     <div class="form-camp">
       <label for="camp-subject">Asunto</label>
-      <input type="text" required id="camp-subject" />
+      <input type="text" required id="camp-subject" name="subject" />
     </div>
 
     <div class="form-camp">
       <label for="camp-message">Mensaje</label>
-      <textarea id="camp-message" required></textarea>
+      <textarea id="camp-message" required name="message"></textarea>
     </div>
 
     <button class="button">Enviar</button>
@@ -92,7 +87,7 @@
 
         &:focus {
           border: none;
-          outline: 0.2rem solid lighten(v.$purple, 10%);
+          outline: 0.2rem solid lighten(v.$purple, 15%);
         }
       }
 
@@ -116,3 +111,38 @@
     }
   }
 </style>
+
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+></script>
+
+<script type="text/javascript">
+  (function () {
+    emailjs.init(import.meta.env.EMAIL_KEY);
+  })();
+</script>
+
+<script type="text/javascript">
+  window.onload = function () {
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        emailjs
+          .sendForm(
+            import.meta.env.EMAIL_SERVICE,
+            import.meta.env.EMAIL_FORM,
+            this
+          )
+          .then(
+            function () {
+              console.log("SUCCESS!");
+            },
+            function (error) {
+              console.log("FAILED...", error);
+            }
+          );
+      });
+  };
+</script>
