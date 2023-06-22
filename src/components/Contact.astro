@@ -50,15 +50,28 @@
 
   .form {
     margin: 0 auto;
+    width: 100%;
+    max-width: 60rem;
 
     @include m.tablet {
-      max-width: 60rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
     }
 
     .form-camp {
       display: flex;
+      width: 100%;
       flex-direction: column;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+
+      @include m.tablet {
+        margin-bottom: 0.5rem;
+
+        &:nth-child(-n + 2) {
+          width: calc(50% - 1rem);
+        }
+      }
 
       label {
         margin-bottom: 1rem;
