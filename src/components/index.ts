@@ -5,5 +5,6 @@ import Home from "./Home.astro";
 import Skills from "./Skills.astro";
 import SkillCard from "./Skill.astro";
 import Projects from "./Projects.astro";
+import Contact from "./Contact.astro";
 
-export { Header, Footer, Nav, Home, Skills, SkillCard, Projects };
+export { Header, Footer, Nav, Home, Skills, SkillCard, Projects, Contact };

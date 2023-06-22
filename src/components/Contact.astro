@@ -1,0 +1,105 @@
+<div class="form-cont" id="contact">
+  <h2>Contactame</h2>
+
+  <form class="form">
+    <div class="form-camp">
+      <label for="camp-name">Nombre</label>
+      <input type="text" required id="camp-name" />
+    </div>
+
+    <div class="form-camp">
+      <label for="camp-phone">Telefono</label>
+      <input
+        type="tel"
+        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        required
+        id="camp-phone"
+      />
+    </div>
+
+    <div class="form-camp">
+      <label for="camp-email">Email</label>
+      <input type="email" required id="camp-email" />
+    </div>
+
+    <div class="form-camp">
+      <label for="camp-subject">Asunto</label>
+      <input type="text" required id="camp-subject" />
+    </div>
+
+    <div class="form-camp">
+      <label for="camp-message">Mensaje</label>
+      <textarea id="camp-message" required></textarea>
+    </div>
+
+    <button class="button">Enviar</button>
+  </form>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as v;
+  @use "../styles/mixins.scss" as m;
+
+  .form-cont {
+    margin-bottom: 10rem;
+
+    h2 {
+      margin-bottom: 5rem;
+    }
+  }
+
+  .form {
+    margin: 0 auto;
+
+    @include m.tablet {
+      max-width: 60rem;
+    }
+
+    .form-camp {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+      label {
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+      }
+
+      input,
+      textarea {
+        height: 4.5rem;
+        font-size: 2rem;
+        color: v.$primary;
+        background-color: v.$white;
+        border-radius: 0.5rem;
+        border: 0.1rem solid v.$gray-l;
+        padding-left: 1rem;
+        outline: none;
+        font-family: inherit;
+
+        &:focus {
+          border: none;
+          outline: 0.2rem solid lighten(v.$purple, 10%);
+        }
+      }
+
+      textarea {
+        padding: 1rem;
+        height: 15rem;
+        resize: none;
+      }
+    }
+
+    button {
+      margin-top: 2.5rem;
+      width: 100%;
+      font-size: 2rem;
+
+      @include m.tablet {
+        display: block;
+        margin-left: auto;
+        width: 20rem;
+      }
+    }
+  }
+</style>
