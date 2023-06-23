@@ -8,8 +8,8 @@
     </div>
 
     <div class="form-camp">
-      <label for="camp-phone">Telefono</label>
-      <input type="tel" required id="camp-phone" name="phone" />
+      <label for="camp-phone">Telefono (Opcional)</label>
+      <input type="tel" id="camp-phone" name="phone" />
     </div>
 
     <div class="form-camp">
@@ -112,37 +112,42 @@
   }
 </style>
 
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-></script>
+<script>
+  import Swal from "sweetalert2";
+  import emailjs from "@emailjs/browser";
 
-<script type="text/javascript">
-  (function () {
-    emailjs.init(import.meta.env.EMAIL_KEY);
-  })();
-</script>
+  const emailKey = import.meta.env.PUBLIC_EMAIL_KEY;
+  const serviceId = import.meta.env.PUBLIC_EMAIL_SERVICE;
+  const templateId = import.meta.env.PUBLIC_EMAIL_TEMPLATE;
 
-<script type="text/javascript">
-  window.onload = function () {
-    document
-      .getElementById("contact-form")
-      .addEventListener("submit", function (event) {
-        event.preventDefault();
-        emailjs
-          .sendForm(
-            import.meta.env.EMAIL_SERVICE,
-            import.meta.env.EMAIL_FORM,
-            this
-          )
-          .then(
-            function () {
-              console.log("SUCCESS!");
-            },
-            function (error) {
-              console.log("FAILED...", error);
-            }
-          );
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+
+  form.addEventListener("submit", sendEmail);
+
+  async function sendEmail(event: SubmitEvent) {
+    event.preventDefault();
+
+    try {
+      await emailjs.sendForm(serviceId, templateId, form);
+
+      Swal.fire({
+        icon: "success",
+        title: "Correo enviado!",
+        timer: 1500,
+        showConfirmButton: false,
       });
-  };
+    } catch (error) {
+      console.log(error);
+
+      Swal.fire({
+        icon: "error",
+        title: "Upss...",
+        text: "No se pudo enviar el correo",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    }
+  }
+
+  emailjs.init(emailKey);
 </script>

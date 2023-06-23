@@ -11,5 +11,5 @@
     "noEmit": true,
     "strict": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/components/env.d.ts"]
 }
