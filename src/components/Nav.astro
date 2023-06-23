@@ -5,7 +5,7 @@ import { Icon } from "astro-icon";
 <div class="nav-cont">
   <nav>
     <a href="#home">Inicio</a>
-    <a href="#about">Acerca</a>
+    <!-- <a href="#about">Acerca</a> -->
     <a href="#skills">Habilidades</a>
     <a href="#projects">Proyectos</a>
     <a href="#contact">Contactar</a>
@@ -27,7 +27,7 @@ import { Icon } from "astro-icon";
 
         <nav>
           <a href="#home">Inicio</a>
-          <a href="#about">Acerca</a>
+          <!-- <a href="#about">Acerca</a> -->
           <a href="#skills">Habilidades</a>
           <a href="#projects">Proyectos</a>
           <a href="#contact">Contactar</a>
@@ -73,6 +73,14 @@ import { Icon } from "astro-icon";
         display: flex;
         gap: 2rem;
         font-size: 1.8rem;
+
+        a {
+          transition: color 150ms ease-out;
+
+          &:hover {
+            color: v.$purple;
+          }
+        }
       }
     }
   }
