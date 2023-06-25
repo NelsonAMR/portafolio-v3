@@ -2,7 +2,7 @@
 import { Nav } from "./";
 ---
 
-<header id="home">
+<header id="header">
   <div class="header-cont container">
     <a href="#home"><h2>NM</h2></a>
     <Nav />
@@ -13,8 +13,14 @@ import { Nav } from "./";
   @use "../styles/variables.scss" as v;
 
   header {
+    position: fixed;
     height: 8rem;
     width: 100%;
+    top: 0;
+    left: 0;
+    background-color: v.$theme;
+    transition: box-shadow 200ms;
+    z-index: 1;
 
     h2 {
       cursor: pointer;
@@ -29,4 +35,22 @@ import { Nav } from "./";
     align-items: center;
     justify-content: space-between;
   }
+
+  header.header-move {
+    box-shadow: 0 1rem 1rem -1rem v.$dark;
+  }
 </style>
+
+<script>
+  const header = document.getElementById("header") as HTMLElement;
+
+  window.addEventListener("scroll", onScroll);
+
+  function onScroll() {
+    if (window.scrollY > 10) {
+      header.classList.add("header-move");
+    } else {
+      header.classList.remove("header-move");
+    }
+  }
+</script>
