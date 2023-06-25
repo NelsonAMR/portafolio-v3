@@ -1,16 +1,6 @@
 @use "./variables.scss" as v;
 @use "./mixins.scss" as m;
 
-:root {
-  --accent: 124, 58, 237;
-  --accent-gradient: linear-gradient(
-    45deg,
-    rgb(var(--accent)),
-    #7a0765 30%,
-    rgb(235, 32, 32) 60%
-  );
-}
-
 *,
 *::before,
 *::after {
@@ -25,11 +15,6 @@ html {
   background-color: v.$theme;
   color: v.$primary;
   scroll-behavior: smooth;
-}
-
-code {
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 body {
