@@ -47,12 +47,12 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    demo: "https://mynewcalculator.netlify.app/",
-    repo: "https://github.com/NelsonAMR/calculadora-react",
-    image: "/assets/projects_min/calculator.webp",
-    name: "Calculator",
-    description: "Pequeña pero eficaz calculadora realizada con React.",
-    technologies: ["React", "CSS"],
+    demo: "https://viewcode.netlify.app/",
+    repo: "https://github.com/NelsonAMR/viewcode",
+    image: "/assets/projects_min/viewcode.webp",
+    name: "View Code",
+    description: "Pequeño pero eficaz editor online en tiempo real",
+    technologies: ["TypeScript", "CSS", "HTML"],
   },
   {
     id: 5,
