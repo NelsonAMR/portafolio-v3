@@ -11,16 +11,6 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    demo: "https://my-ewallet.netlify.app/",
-    repo: "https://github.com/NelsonAMR/Nucleus",
-    image: "/assets/projects_min/nucleus.webp",
-    name: "Nucleus E-Wallet",
-    description:
-      "Landing page desarrollada con fines didacticos, haciendo uso de Javascript y SASS.",
-    technologies: ["HTML", "SASS"],
-  },
-  {
-    id: 2,
     demo: "https://six-circles.netlify.app/",
     repo: "https://github.com/orgs/six-circles/repositories",
     image: "/assets/projects_min/sixcircles.webp",
@@ -37,22 +27,32 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 3,
-    demo: "https://react-theater.netlify.app/",
-    repo: "https://github.com/NelsonAMR/react-movies",
-    image: "/assets/projects_min/movies.webp",
-    name: "React Theater",
-    description: "SPA con distintas vistas, desarrollada con react-router",
-    technologies: ["CSS", "React"],
-  },
-  {
-    id: 4,
+    id: 2,
     demo: "https://viewcode.netlify.app/",
     repo: "https://github.com/NelsonAMR/viewcode",
     image: "/assets/projects_min/viewcode.webp",
     name: "View Code",
     description: "Pequeño pero eficaz editor online en tiempo real",
     technologies: ["TypeScript", "CSS", "HTML"],
+  },
+  {
+    id: 3,
+    demo: "https://my-ewallet.netlify.app/",
+    repo: "https://github.com/NelsonAMR/Nucleus",
+    image: "/assets/projects_min/nucleus.webp",
+    name: "Nucleus E-Wallet",
+    description:
+      "Landing page desarrollada con fines didacticos, haciendo uso de Javascript y SASS.",
+    technologies: ["HTML", "SASS"],
+  },
+  {
+    id: 4,
+    demo: "https://react-theater.netlify.app/",
+    repo: "https://github.com/NelsonAMR/react-movies",
+    image: "/assets/projects_min/movies.webp",
+    name: "React Theater",
+    description: "SPA con distintas vistas, desarrollada con react-router",
+    technologies: ["CSS", "React"],
   },
   {
     id: 5,
