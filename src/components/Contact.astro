@@ -1,4 +1,4 @@
-<div class="form-cont" id="contact">
+<section class="form-cont" id="contact">
   <h2>Contactame</h2>
 
   <form class="form" id="contact-form">
@@ -29,7 +29,7 @@
 
     <button class="button">Enviar</button>
   </form>
-</div>
+</section>
 
 <style lang="scss">
   @use "../styles/variables.scss" as v;
@@ -133,7 +133,8 @@
 
     try {
       await emailjs.sendForm(serviceId, templateId, form);
-
+      
+      form.reset();
       Swal.fire({
         icon: "success",
         title: "Correo enviado!",
