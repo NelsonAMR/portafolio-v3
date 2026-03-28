@@ -56,13 +56,13 @@ export const projects: Project[] = [
   },
   {
     id: 5,
-    demo: "https://carritosite.netlify.app/",
-    repo: "https://github.com/NelsonAMR/carrito",
-    image: "/assets/projects_min/carrito.webp",
-    name: "Carrito Site",
+    demo: "https://qrgenerationx.netlify.app/",
+    repo: "https://github.com/NelsonAMR/QR-Generator",
+    image: "/assets/projects_min/qr-generator.webp",
+    name: "QR Generator",
     description:
-      "Landing de cursos con carrito, desarrollada para poner en practica mis habilidades con JS.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+      "Generador de QR, desarrollado con typescript y tecnologias vanilla de ultima generacion.",
+    technologies: ["HTML", "CSS", "TypeScript"],
   },
   {
     id: 6,
