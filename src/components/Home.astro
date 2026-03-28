@@ -1,11 +1,22 @@
+---
+import { getI18n, type Locale } from "../i18n/ui";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getI18n(locale);
+---
+
 <section class="home container" id="home">
-  <h1>Hola, soy <span>Nelson</span></h1>
-  <h2>Soy Fullstack developer</h2>
-  <p>Construyamos algo juntos</p>
+  <h1>{t.home.greeting} <span>Nelson</span></h1>
+  <h2>{t.home.role}</h2>
+  <p>{t.home.subtitle}</p>
   <a
     href="/NelsonMacias-WebDeveloper.pdf"
     target="_blank"
-    class="button">Descargar CV</a
+    class="button">{t.home.resumeCta}</a
   >
 </section>
 

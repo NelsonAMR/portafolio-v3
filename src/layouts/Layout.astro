@@ -1,33 +1,38 @@
 ---
 import { Header, Footer } from "../components";
+import type { Locale } from "../i18n/ui";
 
 import "../styles/globals.scss";
 
 export interface Props {
   title: string;
+  locale: Locale;
+  description: string;
+  keywords: string;
+  ogTitle: string;
+  ogDescription: string;
 }
 
-const { title } = Astro.props;
+const { title, locale, description, keywords, ogTitle, ogDescription } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Portafolio Web de Nelson Macias, Desarrollador de Software con mas de dos años de experiencia." />
-    <meta name="keywords" content="Portafolio, Nelson Macias, Desarrollador de Software, Frontend, Backend, Full Stack, Web, JavaScript, React, NextJS, VueJS, Astro, HTML, CSS, Tailwind, Bootstrap, NodeJS, ExpressJS, NestJS, Java, Springboot, Español, Ingles, Mexico, English, Spanish" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="viewport" content="width=device-width" />
-    <meta property="og:title" content="Portafolio Web de Nelson Macias">
+    <meta property="og:title" content={ogTitle}>
     <meta property="og:type" content="website" />
-    <meta property="og:description"
-      content="Portafolio Web de Nelson Macias, Desarrollador de Software con mas de dos años de experiencia.">
+    <meta property="og:description" content={ogDescription}>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <Header />
+    <Header locale={locale} />
     <slot />
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>

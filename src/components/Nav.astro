@@ -1,13 +1,28 @@
 ---
 import { Icon } from "astro-icon";
+import { getI18n, type Locale } from "../i18n/ui";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getI18n(locale);
+const switchHref = locale === "es" ? "/en/" : "/";
+const switchLabel = locale === "es" ? "EN" : "ES";
 ---
 
 <div class="nav-cont">
   <nav>
-    <a href="#home">Inicio</a>
-    <a href="#projects">Proyectos</a>
-    <a href="#skills">Habilidades</a>
-    <a href="#contact">Contactar</a>
+    <a href="#home">{t.nav.home}</a>
+    <a href="#projects">{t.nav.projects}</a>
+    <a href="#skills">{t.nav.skills}</a>
+    <a href="#contact">{t.nav.contact}</a>
+    <div class="lang-switch">
+      <a href={switchHref} aria-label={`Switch language to ${switchLabel}`}>
+        {switchLabel}
+      </a>
+    </div>
   </nav>
 
   <div class="nav-mobile">
@@ -21,18 +36,23 @@ import { Icon } from "astro-icon";
             <span class="nav-close">X</span>
           </div>
 
-          <h3>Construyamos algo juntos</h3>
+          <h3>{t.nav.buildTogether}</h3>
         </div>
 
         <nav>
-          <a href="#home">Inicio</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#skills">Habilidades</a>
-          <a href="#contact">Contactar</a>
+          <a href="#home">{t.nav.home}</a>
+          <a href="#projects">{t.nav.projects}</a>
+          <a href="#skills">{t.nav.skills}</a>
+          <a href="#contact">{t.nav.contact}</a>
+          <div class="lang-switch">
+            <a href={switchHref} aria-label={`Switch language to ${switchLabel}`}>
+              {switchLabel}
+            </a>
+          </div>
         </nav>
 
         <div class="nav-footer">
-          <h3>Conectemos</h3>
+          <h3>{t.nav.connect}</h3>
           <div class="icons">
             <a
               href="https://www.linkedin.com/in/nelson-macias/"
@@ -62,10 +82,10 @@ import { Icon } from "astro-icon";
 
   .nav-cont {
     display: flex;
-    align-items: center;
-
+    
     nav {
       display: none;
+      align-items: center;
 
       @include m.tablet {
         display: flex;
@@ -78,6 +98,22 @@ import { Icon } from "astro-icon";
           &:hover {
             color: darken(v.$purple, 10%);
           }
+        }
+      }
+
+      .lang-switch {
+        display: flex;
+        align-items: center;
+        font-size: 1.9rem;
+
+        a {
+          opacity: 0.9;
+          font-weight: 700;
+          border: 0.1rem solid v.$gray;
+          border-radius: 0.6rem;
+          padding: 0.5rem 1.4rem;
+          min-width: 6rem;
+          text-align: center;
         }
       }
     }
@@ -159,7 +195,6 @@ import { Icon } from "astro-icon";
 
         nav {
           display: flex;
-          align-items: center;
           flex-direction: column;
           align-items: start;
           justify-content: start;
@@ -167,6 +202,24 @@ import { Icon } from "astro-icon";
 
           a {
             font-size: 2rem;
+          }
+
+          .lang-switch {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            font-size: 2.2rem;
+
+            a {
+              font-size: 2.2rem;
+              opacity: 0.9;
+              font-weight: 700;
+              border: 0.1rem solid v.$gray;
+              border-radius: 0.6rem;
+              padding: 0.6rem 1.6rem;
+              min-width: 7rem;
+              text-align: center;
+            }
           }
         }
 

@@ -1,11 +1,18 @@
 ---
 import { Nav } from "./";
+import type { Locale } from "../i18n/ui";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
 ---
 
 <header id="header">
   <div class="header-cont container">
     <a href="#home"><h2>NM</h2></a>
-    <Nav />
+    <Nav locale={locale} />
   </div>
 </header>
 

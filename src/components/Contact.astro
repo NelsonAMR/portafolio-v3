@@ -1,33 +1,50 @@
-<section class="form-cont" id="contact">
-  <h2>Contactame</h2>
+---
+import { getI18n, type Locale } from "../i18n/ui";
 
-  <form class="form" id="contact-form">
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getI18n(locale);
+---
+
+<section class="form-cont" id="contact">
+  <h2>{t.contact.title}</h2>
+
+  <form
+    class="form"
+    id="contact-form"
+    data-success-title={t.contact.successTitle}
+    data-error-title={t.contact.errorTitle}
+    data-error-text={t.contact.errorText}
+  >
     <div class="form-camp">
-      <label for="camp-name">Nombre</label>
+      <label for="camp-name">{t.contact.name}</label>
       <input type="text" required id="camp-name" name="name" />
     </div>
 
     <div class="form-camp">
-      <label for="camp-phone">Telefono (Opcional)</label>
+      <label for="camp-phone">{t.contact.phone}</label>
       <input type="tel" id="camp-phone" name="phone" />
     </div>
 
     <div class="form-camp">
-      <label for="camp-email">Email</label>
+      <label for="camp-email">{t.contact.email}</label>
       <input type="email" required id="camp-email" name="email" />
     </div>
 
     <div class="form-camp">
-      <label for="camp-subject">Asunto</label>
+      <label for="camp-subject">{t.contact.subject}</label>
       <input type="text" required id="camp-subject" name="subject" />
     </div>
 
     <div class="form-camp">
-      <label for="camp-message">Mensaje</label>
+      <label for="camp-message">{t.contact.message}</label>
       <textarea id="camp-message" required name="message"></textarea>
     </div>
 
-    <button class="button">Enviar</button>
+    <button class="button">{t.contact.send}</button>
   </form>
 </section>
 
@@ -125,8 +142,11 @@
   const templateId = import.meta.env.PUBLIC_EMAIL_TEMPLATE;
 
   const form = document.getElementById("contact-form") as HTMLFormElement;
+  const successTitle = form?.dataset.successTitle ?? "Email sent!";
+  const errorTitle = form?.dataset.errorTitle ?? "Oops...";
+  const errorText = form?.dataset.errorText ?? "The email could not be sent";
 
-  form.addEventListener("submit", sendEmail);
+  form?.addEventListener("submit", sendEmail);
 
   async function sendEmail(event: SubmitEvent) {
     event.preventDefault();
@@ -137,7 +157,7 @@
       form.reset();
       Swal.fire({
         icon: "success",
-        title: "Correo enviado!",
+        title: successTitle,
         timer: 1500,
         showConfirmButton: false,
       });
@@ -146,8 +166,8 @@
 
       Swal.fire({
         icon: "error",
-        title: "Upss...",
-        text: "No se pudo enviar el correo",
+        title: errorTitle,
+        text: errorText,
         timer: 2000,
         showConfirmButton: false,
       });

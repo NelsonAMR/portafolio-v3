@@ -1,8 +1,14 @@
 ---
 import { Icon } from "astro-icon";
 
-const { img, name, level } = Astro.props;
-const levels = ["Basico", "Intermedio", "Avanzado"];
+interface Props {
+  img: string;
+  name: string;
+  level: number;
+  levelLabels: readonly string[];
+}
+
+const { img, name, level, levelLabels } = Astro.props;
 ---
 
 <div class="skill">
@@ -10,7 +16,7 @@ const levels = ["Basico", "Intermedio", "Avanzado"];
   <div class="skill-cont">
     <h4>{name}</h4>
     <div class="skill-leve">
-      <p>{levels[level]}</p>
+      <p>{levelLabels[level]}</p>
       <div class="progress">
         <div class="progress-bar" style={`width:${(level + 1) / 0.03}%;`}></div>
       </div>

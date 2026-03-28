@@ -1,11 +1,19 @@
 ---
 import { Icon } from "astro-icon";
+import { getI18n, type Locale } from "../i18n/ui";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getI18n(locale);
 ---
 
 <footer id="#contact">
   <div class="footer-cont container">
     <h2>Nelson Macias</h2>
-    <h3>Frontend Developer</h3>
+    <h3>{t.footer.role}</h3>
     <div class="icons">
       <a href="https://www.linkedin.com/in/nelson-macias/" target="_blank">
         <Icon name="ri:linkedin-fill" class="icon" />
@@ -20,7 +28,7 @@ import { Icon } from "astro-icon";
         <Icon name="bi:whatsapp" class="icon" />
       </a>
     </div>
-    <p>"Si puedes pensarlo, puedes programarlo"</p>
+    <p>{t.footer.quote}</p>
   </div>
 </footer>
 
